@@ -5,6 +5,12 @@ import { dataSet } from "./sampleData.js";
 
 const PORT = 5000;
 
+const corsOptions = {
+  origin: "http://localhost:5174",
+};
+
+app.use(cors(corsOptions));
+
 const app = express();
 
 app.use(cors());
