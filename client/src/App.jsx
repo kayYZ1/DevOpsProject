@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container } from "./styles/app";
+import { Container, List, ListItem, Button } from "./styles/app";
 
 const App = () => {
   const [colors, setColors] = useState([]);
+  const [buttonColor, setButtonColor] = useState("");
 
   useEffect(() => {
     axios
@@ -19,15 +20,13 @@ const App = () => {
   return (
     <React.Fragment>
       <Container>
-        <ul>
+        <List>
           {colors.map((color) => (
-            <li key={color.id}>
-              <button style={{ backGroundColor: `${color.value}` }}>
-                {color.color}
-              </button>
-            </li>
+            <ListItem key={color.id}>
+              <Button style={{ background: color.value }}>{color.color}</Button>
+            </ListItem>
           ))}
-        </ul>
+        </List>
       </Container>
     </React.Fragment>
   );
