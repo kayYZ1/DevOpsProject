@@ -4,7 +4,6 @@ import { Container, List, ListItem, Button } from "./styles/app";
 
 const App = () => {
   const [colors, setColors] = useState([]);
-  const [buttonColor, setButtonColor] = useState("");
 
   useEffect(() => {
     axios
