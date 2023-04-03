@@ -13,8 +13,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use(cors());
-
 app.get("/", (req, res) => {
   res.json(dataSet);
 });
