@@ -10,7 +10,6 @@ const App = () => {
     axios
       .get("http://localhost:5000/")
       .then(function (response) {
-        console.log(response.data);
         setColors(response.data);
       })
       .catch(function (error) {
