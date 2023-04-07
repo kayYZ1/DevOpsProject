@@ -1,2 +1,2 @@
 # DevOpsTask
-DevOps task for internship recruitment
+Project uses Vite for the frontend and Node+Express on the backend
