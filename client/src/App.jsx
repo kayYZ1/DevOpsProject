@@ -8,7 +8,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/")
+      .get("http://172.17.0.1:5000/")
       .then(function (response) {
         setColors(response.data);
       })

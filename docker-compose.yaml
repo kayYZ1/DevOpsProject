@@ -7,12 +7,28 @@ services:
       - "5173:5173"
     networks:
       - myApp
-  server:
+  server1:
     build: "./server"
     ports:
-      - "5000:5000"
+      - "5001:5000"
     networks:
       - myApp
+  server2:
+    build: "./server"
+    ports:
+      - "5002:5000"
+    networks:
+      - myApp
+  reverseproxy:
+    restart: always
+    build: "./nginx"
+    ports:
+      - "5000:80"
+    networks:
+      - myApp
+    depends_on:
+      - server1
+      - server2
 networks:
   myApp:
     driver: bridge
