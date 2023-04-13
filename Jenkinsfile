@@ -1,8 +1,11 @@
+def DOCKER_USERNAME = credentials('kayz29')
+def DOCKER_PASSWORD = credentials('4Hce47ADkrRo5mi22Y4WXgZYe')
+
 pipeline {
     agent any
     environment {
-                DOCKER_USERNAME = credentials('kayz29')
-                DOCKER_PASSWORD = credentials('4Hce47ADkrRo5mi22Y4WXgZYe')
+                DOCKER_USERNAME = ${DOCKER_USERNAME}
+                DOCKER_PASSWORD = c${DOCKER_PASSWORD}
     }
     stages {
         stage("Checkout") {
