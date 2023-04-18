@@ -1,11 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage ("Checkout") {
-            checkout([$class: 'GitSCM', branches: [[name: 'CI/CD']],
-            userRemoteConfigs: [[url: 'https://github.com/kayYZ1/DevOpsTask.git']]])
+        stage ("checkout") {
+            checkout scm
         }
-        stage ("Tests") {
+        stage ("test") {
             steps {
                 dir ("client") {
                     sh "npm install"
@@ -13,12 +12,12 @@ pipeline {
                 }
             }
         }
-        stage("Build") {
+        stage("build") {
             sh 'docker build -t kayYZ1/devopsTask:client-latest client'
             sh 'docker build -t kayYZ1/devopsTask:server-latest server'
             sh 'docker build -t kayYZ1/devopsTask:nginx-latest nginx'
         }
-        stage("Deploy") {
+        stage("deploy") {
             sh "echo Deploy"
         }
     }
