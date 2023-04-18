@@ -24,7 +24,7 @@ pipeline {
         }
         stage ("Deploy") {
             steps {
-                sh "echo Deploy"
+                sh "Push images to Docker hub (ToDo)"
             }
         }
     }
