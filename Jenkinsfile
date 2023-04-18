@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage ("Versions") {
-            steps {
-                sh "npm install"
-                sh "sh npm --version"
-                sh "sh docker --version"
-            }
-        }
         stage ("Checkout") {
             steps {
                 git branch: 'CI/CD', url: "https://github.com/kayYZ1/DevOpsTask.git"
@@ -16,6 +9,8 @@ pipeline {
         stage ("Test") {
             steps {
                 dir ("client") {
+                    sh "npm install"
+                    sg "npm --version"
                     sh "npm test"
                 }
             }
