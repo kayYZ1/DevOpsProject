@@ -2,8 +2,10 @@ pipeline {
     agent any
     stages {
         stage ("Versions") {
-            sh "sh npm --version"
-            sh "sh docker --version"
+            steps {
+                sh "sh npm --version"
+                sh "sh docker --version"
+            }
         }
         stage ("Checkout") {
             steps {
