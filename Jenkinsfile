@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage ("Versions") {
             steps {
+                sh "npm install"
                 sh "sh npm --version"
                 sh "sh docker --version"
             }
@@ -15,7 +16,6 @@ pipeline {
         stage ("Test") {
             steps {
                 dir ("client") {
-                    sh "npm install"
                     sh "npm test"
                 }
             }
