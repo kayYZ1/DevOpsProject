@@ -22,12 +22,16 @@ pipeline {
             }
         }
         stage("Build") {
-            sh 'docker build -t kayYZ1/devopsTask:client-latest client'
-            sh 'docker build -t kayYZ1/devopsTask:server-latest server'
-            sh 'docker build -t kayYZ1/devopsTask:nginx-latest nginx'
+            steps {
+                sh 'docker build -t kayYZ1/devopsTask:client-latest client'
+                sh 'docker build -t kayYZ1/devopsTask:server-latest server'
+                sh 'docker build -t kayYZ1/devopsTask:nginx-latest nginx'
+            }
         }
         stage("Deploy") {
-            sh "echo Deploy"
+            steps {
+                sh "echo Deploy"
+            }
         }
     }
 }
