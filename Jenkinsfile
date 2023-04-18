@@ -17,9 +17,9 @@ pipeline {
         }
         stage ("Build") {
             steps {
-                sh 'docker build -t kayYZ1/devopstask:client-latest client'
-                sh 'docker build -t kayYZ1/devopstask:server-latest server'
-                sh 'docker build -t kayYZ1/devopstask:nginx-latest nginx'
+                sh 'docker build -t devopstask:client-latest client'
+                sh 'docker build -t devopstask:server-latest server'
+                sh 'docker build -t devopstask:nginx-latest nginx'
             }
         }
         stage ("Deploy") {
