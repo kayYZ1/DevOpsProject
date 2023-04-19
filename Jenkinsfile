@@ -22,9 +22,17 @@ pipeline {
                 sh 'docker build -t devopstask:nginx-latest nginx'
             }
         }
-        stage ("Deploy") {
+        stage ("Save artifacts") {
             steps {
-                sh "Push images to Docker hub (ToDo)"
+                sh "docker save devopstask:client-latest -o devopstask:client-latest.tar"
+                sh "docker save devopstask:server-latest -o devopstask:server-latest.tar"
+                sh "docker save devopstask:nginx-latest -o devopstask:nginx-latest.tar"
+                archiveArtifacts artifacts: "devopstask:client-latest.tar", allowEmptyArchive: true, 
+                onlyIfSuccesful: true
+                archiveArtifacts artifacts: "devopstask:server-latest.tar", allowEmptyArchive: true, 
+                onlyIfSuccesful: true
+                archiveArtifacts artifacts: "devopstask:nginx-latest.tar", allowEmptyArchive: true, 
+                onlyIfSuccesful: true
             }
         }
     }
