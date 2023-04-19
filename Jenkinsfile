@@ -28,11 +28,11 @@ pipeline {
                 sh "docker save devopstask:server-latest -o devopstask:server-latest.tar"
                 sh "docker save devopstask:nginx-latest -o devopstask:nginx-latest.tar"
                 archiveArtifacts artifacts: "devopstask:client-latest.tar", allowEmptyArchive: true, 
-                onlyIfSuccesful: true
+                onlyIfSuccessful: true
                 archiveArtifacts artifacts: "devopstask:server-latest.tar", allowEmptyArchive: true, 
-                onlyIfSuccesful: true
+                onlyIfSuccessful: true
                 archiveArtifacts artifacts: "devopstask:nginx-latest.tar", allowEmptyArchive: true, 
-                onlyIfSuccesful: true
+                onlyIfSuccessful: true
             }
         }
     }
