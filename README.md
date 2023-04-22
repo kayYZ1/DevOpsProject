@@ -48,7 +48,7 @@ Start the server (NGINX folder doesn't have package.json therefore it needs to b
 
 
 ```bash
-  npm run test
+  npm run test //client
 ```
 
 
