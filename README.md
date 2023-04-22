@@ -40,7 +40,7 @@ Start the server (NGINX folder doesn't have package.json therefore it needs to b
 ```bash
   npm run dev //client
   npm start //server
-  docker run -p 5000:80 [name] . //nginx
+  docker run -p 5000:80 [name] . //You need to be in the nginx folder
 ```
 
 
