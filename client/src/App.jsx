@@ -22,7 +22,11 @@ const App = () => {
         <List>
           {colors.map((color) => (
             <ListItem key={color.id}>
-              <Button style={{ background: color.value }}>{color.color}</Button>
+              <Button style={{ background: color.value }}>
+                {color.color}
+                <br></br>
+                {color.value}
+              </Button>
             </ListItem>
           ))}
         </List>
